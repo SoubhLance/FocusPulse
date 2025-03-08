@@ -209,3 +209,51 @@ document.addEventListener('DOMContentLoaded', () => {
     const timer = new PomodoroTimer();
     timer.init();
 });
+
+
+
+const body = document.body;
+const bgUpload = document.getElementById('bg-upload');
+const bgUploadLabel = document.querySelector('.bg-upload-label');
+const removeBg = document.querySelector('.remove-bg');
+
+let backgroundImage = localStorage.getItem('backgroundImage') || null;
+
+// Function to set background image
+function setBackgroundImage(imageURL) {
+    body.style.backgroundImage = `url(${imageURL})`;
+    body.style.backgroundSize = 'cover';
+    body.style.backgroundPosition = 'center';
+    localStorage.setItem('backgroundImage', imageURL);
+}
+
+// Function to remove background image
+function removeBackgroundImage() {
+    body.style.backgroundImage = 'none';
+    localStorage.removeItem('backgroundImage');
+    bgUploadLabel.textContent = 'Choose image';
+}
+
+// Apply stored background image on load
+if (backgroundImage) {
+    setBackgroundImage(backgroundImage);
+    bgUploadLabel.textContent = 'Image Uploaded';
+}
+
+// Event listener for background upload
+bgUpload.addEventListener('change', function() {
+    const file = this.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.addEventListener('load', function() {
+            setBackgroundImage(this.result);
+            bgUploadLabel.textContent = 'Image Uploaded';
+        });
+        reader.readAsDataURL(file);
+    }
+});
+
+// Event listener for remove background button
+removeBg.addEventListener('click', function() {
+    removeBackgroundImage();
+});

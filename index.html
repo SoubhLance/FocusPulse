@@ -4,10 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pomodoro Timer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="navbar">
+        <h1 class="logo">Focus Pulse</h1>
+    </div>
+
     <div class="settings-btn">
         <button id="customize">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -18,15 +22,30 @@
     </div>
 
     <div class="container">
-        <div class="timer-modes">
-            <button class="mode-btn active" id="pomodoro">pomodoro</button>
-            <button class="mode-btn" id="short-break">short break</button>
-            <button class="mode-btn" id="long-break">long break</button>
+        <div class="timer-wrapper">
+            <div class="timer-modes">
+                <button class="mode-btn active" id="pomodoro">pomodoro</button>
+                <button class="mode-btn" id="short-break">short break</button>
+                <button class="mode-btn" id="long-break">long break</button>
+            </div>
+
+            <div class="timer">25:00</div>
+
+            <button class="start-btn" id="start">start</button>
+            
+            <div class="progress-ring">
+                <svg width="320" height="320" viewBox="0 0 320 320">
+                    <circle class="progress-ring-circle-bg" cx="160" cy="160" r="150" />
+                    <circle class="progress-ring-circle" cx="160" cy="160" r="150" />
+                </svg>
+            </div>
         </div>
-
-        <div class="timer">25:00</div>
-
-        <button class="start-btn" id="start">start</button>
+        
+        <div class="session-counter">
+            <div class="completed-sessions">
+                <span class="completed-count">0</span> / <span class="goal-count">4</span> sessions
+            </div>
+        </div>
     </div>
 
     <div class="settings-modal" id="settings-modal">
@@ -38,16 +57,52 @@
                     <button class="theme-btn active" data-theme="default">Default</button>
                     <button class="theme-btn" data-theme="forest">Forest</button>
                     <button class="theme-btn" data-theme="ocean">Ocean</button>
+                    <button class="theme-btn" data-theme="sunset">Sunset</button>
+                    <button class="theme-btn" data-theme="midnight">Midnight</button>
+                    <button class="theme-btn" data-theme="neon">Neon</button>
                 </div>
             </div>
+            
+            <div class="setting-group">
+                <label>Custom Background</label>
+                <div class="bg-input-container">
+                    <input type="file" id="bg-upload" accept="image/*" class="bg-upload">
+                    <label for="bg-upload" class="bg-upload-label">Choose image</label>
+                    <button id="remove-bg" class="remove-bg">Remove</button>
+                </div>
+            </div>
+            
             <div class="setting-group">
                 <label>Timer (minutes)</label>
                 <div class="time-inputs">
-                    <input type="number" id="work-time" value="25" min="1" max="60">
-                    <input type="number" id="short-break-time" value="5" min="1" max="60">
-                    <input type="number" id="long-break-time" value="15" min="1" max="60">
+                    <div class="time-input-group">
+                        <label>Work</label>
+                        <input type="number" id="work-time" value="25" min="1" max="60">
+                    </div>
+                    <div class="time-input-group">
+                        <label>Short Break</label>
+                        <input type="number" id="short-break-time" value="5" min="1" max="60">
+                    </div>
+                    <div class="time-input-group">
+                        <label>Long Break</label>
+                        <input type="number" id="long-break-time" value="15" min="1" max="60">
+                    </div>
                 </div>
             </div>
+            
+            <div class="setting-group">
+                <label>Session Goal</label>
+                <input type="number" id="session-goal" value="4" min="1" max="12">
+            </div>
+            
+            <div class="setting-group">
+                <label>Sound</label>
+                <div class="sound-toggle">
+                    <input type="checkbox" id="sound-enabled" checked>
+                    <label for="sound-enabled">Enable notification sound</label>
+                </div>
+            </div>
+            
             <button class="save-btn">Save Settings</button>
         </div>
     </div>
