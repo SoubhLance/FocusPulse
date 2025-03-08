@@ -1,6 +1,8 @@
-# Focus Pulse - Pomodoro Timer
+# Focus Pulse - Pomodoro Timer 
 
-![Focus Pulse Logo](./assets/logo.png)
+<img src="https://github.com/user-attachments/assets/db4e1e68-8f04-4454-8e5f-e4e4c401c4a4" alt="Focus Pulse Logo" width="50">
+
+
 
 Focus Pulse is a productivity app based on the Pomodoro Technique, helping users stay focused by managing work sessions and breaks. It offers customizable timer intervals, themes, and more.
 
