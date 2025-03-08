@@ -19,5 +19,5 @@ Focus Pulse is a productivity app based on the Pomodoro Technique, helping users
 ```bash
 git clone https://github.com/SoubhLance/focus-pulse.git
 cd focus-pulse
-
+```
 2. Install dependencies:
