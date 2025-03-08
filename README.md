@@ -32,3 +32,18 @@ cd focus-pulse
 
 ## Contributions
 Feel free to fork this repository, open issues, or submit pull requests if you would like to contribute.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+``` bash
+
+You can customize the details as per your preferences!
+```
+
+## Contact
+
+For any questions, feedback, or collaboration, feel free to reach out:
+
+- GitHub: [SoubhLance](https://github.com/SoubhLance)
+- Email: [studysadhu2022@gmail.com](mailto:studysadhu2022@gmail.com)
